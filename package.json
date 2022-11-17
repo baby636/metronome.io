@@ -16,7 +16,9 @@
     "prebuild": "npm run fix-deps && npm run build:libs",
     "start": "gulp && PORT=3001 react-app-rewired start",
     "start:static": "PORT=3001 react-app-rewired start && gulp watch",
-    "test": "react-app-rewired test --env=jsdom"
+    "test": "react-app-rewired test --env=jsdom",
+    "prepublish": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "dependencies": {
     "accounting": "0.4.1",
@@ -44,7 +46,8 @@
     "ua-parser-js": "0.7.18",
     "web3": "1.0.0-beta.37",
     "web3-detect-provider": "file:lib/web3-detect-provider",
-    "web3-patches": "1.0.0"
+    "web3-patches": "1.0.0",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "autoprefixer": "^9.5.0",
@@ -95,5 +98,6 @@
     "ignore": [
       "public/dist/**/*.{js,json,css,html,md}"
     ]
-  }
+  },
+  "snyk": true
 }
